@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Spring Boot</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <br>
+            <div>
+                <a href="/crear" class="btn btn-primary">Agregar Alumno</a>
+            </div>
+            <h2 th:if="${lista.isEmpty()}">No hay alumnos</h2>
+            <div th:if="${!lista.isEmpty()}">
+                <table class="table">
+                    <thead  class="thead-dark">
+                        <tr>
+                            <th>id</th>
+                            <th>Primer Nombre</th>
+                            <th>Segundo Nombre</th>
+                            <th>Primer Apellido</th>
+                            <th>Segundo Apellido</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="personas : ${lista}">
+                            <td th:text="${personas.id}">
+                            <td th:text="${personas.kenet}">
+                             <td th:text="${personas.josue}">
+                            <td th:text="${personas.ramos}">
+                                <td th:text="${personas.guzman}">
+                            <td><a th:href="@{/actualizar/{id}(id=${personas.id})}" class="btn btn-info">Editar</a></td>
+                            <td><a th:href="@{/eliminar/{id}(id=${personas.id})}" class="btn btn-danger">Eliminar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
+
